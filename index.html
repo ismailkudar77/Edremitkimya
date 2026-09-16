@@ -1,53 +1,184 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b4f6c"><link rel="manifest" href="./manifest.webmanifest">
-<title>Edremit'te Kimyanın İzinde</title>
-<style>
-:root{--b:#0b4f6c;--g:#167453;--bg:#eef5f4;--c:#fff;--l:#d8e4e2;--m:#67767c;--r:#b33e35}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#17242c}.bar{position:sticky;top:0;z-index:10;background:var(--b);color:#fff;padding:14px 16px;box-shadow:0 3px 18px #0002}.ey{font-size:11px;letter-spacing:.12em;font-weight:800;opacity:.85}.bar h1{font-size:20px;margin:2px 0}.wrap{max-width:760px;margin:auto;padding:14px 14px 60px}.card{background:#fff;border:1px solid var(--l);border-radius:20px;padding:18px;margin:12px 0;box-shadow:0 8px 24px #14322a0d}.hero{background:linear-gradient(135deg,#0b4f6c,#167453);color:#fff;border:0}.hidden{display:none!important}.pill{display:inline-block;background:#e7f1f4;color:var(--b);font-size:12px;font-weight:900;padding:5px 9px;border-radius:999px}.muted{color:var(--m)}label{display:block;font-weight:750;margin:10px 0 6px}input{width:100%;padding:12px 13px;border:1px solid #b8c8c6;border-radius:12px;font-size:16px;margin-top:6px}.btn,.ans,.back{width:100%;border:0;border-radius:13px;padding:13px 14px;font-weight:800;font-size:16px;margin:7px 0}.btn{background:var(--g);color:#fff}.sec{background:#e8f1f3;color:#173844}.back{width:auto;background:transparent;color:var(--b);padding-left:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.action{min-height:125px;border:1px solid var(--l);background:#fff;border-radius:18px;padding:14px;text-align:left;display:flex;flex-direction:column;gap:5px}.action span{font-size:28px}.badge{background:#e9f7ee;color:var(--g);font-weight:900;padding:8px 11px;border-radius:999px}.progress{height:12px;background:#e4ecec;border-radius:999px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,#167453,#65ab79);width:0}.roles{display:grid;gap:8px}.role{background:#f7faf9;border:1px solid var(--l);border-radius:13px;padding:11px}.ans{display:block;text-align:left;background:#f8fbfb;border:1px solid #cbd9d7;color:#173038}.good{background:#eaf7ef!important}.bad{background:#fff1ef!important}.box{padding:12px;border-radius:13px;margin-top:10px}.success{background:#eaf7ef;border:1px solid #a8d9ba}.hint{background:#fff7df;border:1px solid #ead48a}.error{color:var(--r);font-weight:750}.puzzle{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;aspect-ratio:1;background:#dfe8e7;padding:4px;border-radius:16px}.tile{border:2px solid transparent;border-radius:9px;overflow:hidden;background:#ddd}.tile.sel{border-color:#f0a429}.tile img{width:100%;height:100%;display:block;pointer-events:none}.target{margin-top:12px;background:#fff7f5;border:2px dashed #d6534a;border-radius:15px;padding:13px;text-align:center}.item{padding:12px 0;border-bottom:1px solid var(--l)}.video{position:relative;background:#18232a;border-radius:16px;overflow:hidden;aspect-ratio:4/3}.video video{width:100%;height:100%;object-fit:cover}.frame{position:absolute;inset:18% 12%;border:3px solid #fff;border-radius:18px;color:#fff;display:flex;align-items:flex-end;justify-content:center;padding:8px}.trophy{text-align:center;font-size:72px}@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.bar h1{font-size:18px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b4f6c">
+  <meta name="description" content="Edremit'te Kimyanın İzinde - QR Kodlu Kimya Oryantiringi">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Edremit'te Kimyanın İzinde</title>
 </head>
 <body>
-<header class="bar"><div class="ey">EDREMİT'TE KİMYANIN İZİNDE</div><h1>QR Kodlu Kimya Oryantiringi</h1></header>
-<main class="wrap">
-<section id="home">
- <div class="card hero"><h2>⚛️ Keşfet • Kimyayı Çöz • Kanıtla • Anlat</h2><p>Edremit'i açık hava kimya laboratuvarına dönüştüren mobil parkur.</p></div>
- <div id="setup" class="card"><span class="pill">BAŞLANGIÇ</span><h2>👥 Takımını oluştur</h2><p>3 kişilik takımınızı kaydedin.</p>
- <label>Takım adı<input id="tn" placeholder="Örn. İyon Avcıları"></label><label>1. öğrenci<input id="m1" placeholder="Ad Soyad"></label><label>2. öğrenci<input id="m2" placeholder="Ad Soyad"></label><label>3. öğrenci<input id="m3" placeholder="Ad Soyad"></label>
- <button class="btn" id="save">Takımı oluştur</button><p id="terr" class="error hidden">Tüm alanları doldurun.</p></div>
- <div id="dash" class="hidden">
-  <div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="muted">TAKIM</div><h2 id="dname"></h2></div><span id="pbadge" class="badge">0 / 10</span></div><div class="progress"><div id="pbar"></div></div></div>
-  <div class="grid"><button class="action" data-view="scan"><span>📷</span><b>İstasyon QR'ını Tara</b><small>kamera veya manuel kod</small></button><button class="action" data-view="route"><span>🗺️</span><b>Yolculuğum</b><small>istasyon durumları</small></button><button class="action" data-view="evidence"><span>📸</span><b>Kimya Kanıtlarım</b><small>fotoğraf görevleri</small></button><button class="action" data-view="ach"><span>🏆</span><b>Başarılarım</b><small>unvan ve ilerleme</small></button></div>
-  <div class="card"><h3>🔄 Sıradaki roller</h3><div id="roles" class="roles"></div></div>
- </div>
-</section>
-<section id="scan" class="hidden"><button class="back">← Ana ekran</button><div class="card"><span class="pill">QR TARAMA</span><h2>📷 İstasyon kodunu tara</h2><div class="video"><video id="vid" playsinline muted></video><div class="frame">QR alanı</div></div><button class="btn" id="cam">Kamerayı başlat</button><button class="btn sec hidden" id="stop">Kamerayı durdur</button><p id="cnote" class="muted"></p><hr><label>Manuel kod<input id="manual" placeholder="EDR-KIM-01"></label><button class="btn sec" id="open">İstasyonu aç</button><p id="serr" class="error hidden"></p></div></section>
-<section id="route" class="hidden"><button class="back">← Ana ekran</button><div class="card"><h2>🗺️ Yolculuğum</h2><div id="stations"></div></div></section>
-<section id="evidence" class="hidden"><button class="back">← Ana ekran</button><div class="card"><h2>📸 Kimya Kanıtlarım</h2><p>Fotoğrafları telefonunuzda saklayın; uygulama tamamlanma durumunu izler.</p><div id="elist"></div></div></section>
-<section id="ach" class="hidden"><button class="back">← Ana ekran</button><div class="card"><div class="trophy">🏆</div><h2 id="atitle" style="text-align:center"></h2><p id="atext" style="text-align:center"></p></div></section>
-<section id="station" class="hidden"><button class="back">← Ana ekran</button>
- <div id="s1" class="hidden"><div class="card"><span class="pill">İSTASYON 01</span><h2>🏫 Kimya Her Yerde</h2><p>Fernur Sözen Mesleki ve Teknik Anadolu Lisesi</p></div><div class="card"><h3>🔄 Roller</h3><div id="sroles" class="roles"></div></div>
- <div class="card"><span class="pill">GÖREV</span><h3>🔎 Çevrene bak</h3><p>30 saniye boyunca okul çevresini inceleyin. Boyanmış bir yüzey, metal bir nesne ve plastikten yapılmış bir eşya bulun.</p><h3>Aşağıdakilerden hangisi kimyanın inceleme alanıyla ilişkilidir?</h3><button class="ans">A) Metal yüzeyin zamanla paslanması</button><button class="ans">B) Bir temizlik maddesinin kiri uzaklaştırması</button><button class="ans">C) Plastik bir kalemin üretildiği malzemenin özellikleri</button><button class="ans" data-ok="1">D) Yukarıdakilerin tümü</button><div id="feed"></div></div>
- <div id="pcard" class="card hidden"><span class="pill">HEDEF KİLİDİ AÇILDI</span><h3>🧩 3×3 harita puzzle'ı</h3><p>İki parçaya sırayla dokunarak yerlerini değiştirin.</p><div id="puzzle" class="puzzle"></div><p class="muted">İlk prototipte harita şematiktir.</p><button class="btn sec" id="shuffle">Puzzle'ı yeniden karıştır</button><div id="target" class="target hidden"><h3>📍 Hedef 02 açıldı</h3><p>Hedef <b>İstasyon Caddesi</b> üzerindedir. Orada İstasyon 02 QR kodunu bulun.</p></div></div>
- <div id="photo" class="card hidden"><span class="pill">KİMYA KANITI 01</span><h3>📸 Fotoğraf görevi</h3><p>Kimyayla ilişkilendirebildiğiniz üç farklı malzemeyi aynı karede göstermeye çalışın.</p><input id="photoFile" type="file" accept="image/*" capture="environment"><div id="preview"></div><label><input id="pdone" type="checkbox" style="width:auto"> Fotoğraf görevini tamamladık.</label><button class="btn" id="complete">İstasyon 01'i tamamla</button><p id="cerr" class="error hidden">Önce fotoğraf görevini tamamlayın.</p></div></div>
- <div id="placeholder" class="card hidden"><h2 id="ptitle"></h2><p>Bu istasyon sonraki sürümde eklenecek.</p></div>
-</section>
-</main>
-<script>
-const ST=[{id:1,code:'EDR-KIM-01',name:'Fernur Sözen MTAL',theme:'Kimya Her Yerde'},{id:2,code:'EDR-KIM-02',name:'Edremit İlçe Halk Kütüphanesi',theme:'Atomların Hikâyesi'},{id:3,code:'EDR-KIM-03',name:'Faruk Serpil Parkı',theme:'Element Avcısı'},{id:4,code:'EDR-KIM-04',name:'Ayşe Sıdıka Erke Etnografya Müzesi',theme:'Maddenin Geçmişi'},{id:5,code:'EDR-KIM-05',name:'Edremit MYO',theme:'Zeytinin Kimyası'},{id:6,code:'EDR-KIM-06',name:'Sarıkız Meydanı',theme:'Denizin Kimyasal Şifresi'},{id:7,code:'EDR-KIM-07',name:'Zeytinyağı Analiz Laboratuvarı',theme:'Kimyasal Analiz'},{id:8,code:'EDR-KIM-08',name:'Arıtma Tesisi / Aday',theme:'Suyun Kimyası'},{id:9,code:'EDR-KIM-09',name:'Şehit Hamdibey Meydanı',theme:'Final Şifresi'},{id:10,code:'EDR-KIM-10',name:'Fernur Sözen MTAL',theme:'Final'}];
-let st=JSON.parse(localStorage.getItem('EKI')||'null')||{team:null,done:[],ev:[],wrong:0};const $=x=>document.getElementById(x);let stream,timer,sel;
-function save(){localStorage.setItem('EKI',JSON.stringify(st))}function view(id){['home','scan','route','evidence','ach','station'].forEach(x=>$(x).classList.toggle('hidden',x!==id));if(id!=='scan')stopCam();scrollTo(0,0)}
-function roles(n){let m=st.team?.m||['Öğrenci 1','Öğrenci 2','Öğrenci 3'],s=(n-1)%3;return [m[s%3],m[(s+1)%3],m[(s+2)%3]]}function roleHTML(n){let r=roles(n);return `<div class="role">🧪 <b>Kimyager:</b> ${r[0]}</div><div class="role">🧭 <b>Navigatör:</b> ${r[1]}</div><div class="role">📸 <b>Belgeleyici:</b> ${r[2]}</div>`}
-function render(){let h=!!st.team;$('setup').classList.toggle('hidden',h);$('dash').classList.toggle('hidden',!h);if(h){$('dname').textContent=st.team.name;$('pbadge').textContent=`${st.done.length} / 10`;$('pbar').style.width=`${st.done.length*10}%`;$('roles').innerHTML=roleHTML(Math.min(st.done.length+1,10))}$('stations').innerHTML=ST.map(s=>{let d=st.done.includes(s.id),u=s.id===1||st.done.includes(s.id-1);return `<div class="item"><b>${d?'✅':u?'🔓':'🔒'} ${s.id}. ${s.name}</b><br><span class="muted">${d?'Tamamlandı':u?'Erişilebilir':'Kilitli'} • ${s.theme}</span></div>`}).join('');$('elist').innerHTML=ST.map(s=>`<div class="item"><b>${st.ev.includes(s.id)?'📸✅':'📷'} İstasyon ${s.id}</b> — ${s.name}</div>`).join('');$('atitle').textContent=st.done.length===10?'Edremit Kimya Kâşifi':'Edremit Kimya Kâşifi Adayı';$('atext').textContent=st.done.length===10?'Parkurun tüm istasyonlarını tamamladınız.':`${st.done.length}/10 istasyon tamamlandı.`}
-$('save').onclick=()=>{let v=[$('tn').value.trim(),$('m1').value.trim(),$('m2').value.trim(),$('m3').value.trim()];if(v.some(x=>!x))return $('terr').classList.remove('hidden');st.team={name:v[0],m:v.slice(1)};save();render()};document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>view(b.dataset.view));document.querySelectorAll('.back').forEach(b=>b.onclick=()=>view('home'));
-function openCode(c){let s=ST.find(x=>x.code===(c||'').trim().toUpperCase());if(!s)return err('Bu kod parkura ait görünmüyor.');if(!(s.id===1||st.done.includes(s.id-1)))return err(`İstasyon ${s.id} henüz kilitli.`);view('station');$('s1').classList.add('hidden');$('placeholder').classList.add('hidden');if(s.id===1){$('s1').classList.remove('hidden');$('sroles').innerHTML=roleHTML(1)}else{$('placeholder').classList.remove('hidden');$('ptitle').textContent=`İstasyon ${s.id} — ${s.name}`}}
-function err(t){$('serr').textContent=t;$('serr').classList.remove('hidden')}$('open').onclick=()=>openCode($('manual').value);
-async function startCam(){if(!navigator.mediaDevices?.getUserMedia){$('cnote').textContent='Kamera kullanılamıyor; manuel kodu kullanın.';return}try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}});$('vid').srcObject=stream;await $('vid').play();$('cam').classList.add('hidden');$('stop').classList.remove('hidden');if('BarcodeDetector'in window){let det=new BarcodeDetector({formats:['qr_code']});$('cnote').textContent='QR kodu çerçeveye getirin.';timer=setInterval(async()=>{try{let c=await det.detect($('vid'));if(c.length)openCode(c[0].rawValue)}catch{}},700)}else $('cnote').textContent='Bu tarayıcı otomatik QR algılamıyor; manuel kodu kullanın.'}catch{$('cnote').textContent='Kamera izni alınamadı. Siteyi GitHub Pages üzerinden HTTPS ile açın.'}}function stopCam(){if(timer)clearInterval(timer);timer=null;if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;$('cam')?.classList.remove('hidden');$('stop')?.classList.add('hidden')}$('cam').onclick=startCam;$('stop').onclick=stopCam;
-let map=`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900"><rect width="900" height="900" fill="#f6efe2"/><g stroke="#d0c5b3" stroke-width="34" fill="none"><path d="M40 150 C230 110 480 195 860 120"/><path d="M50 365 C260 330 530 390 860 330"/><path d="M40 610 C260 555 530 650 860 575"/><path d="M205 30 C245 260 245 570 215 870"/><path d="M505 30 C500 260 555 570 535 870"/></g><g font-family="Arial" fill="#31434d"><text x="70" y="105" font-size="34" font-weight="700">Cennetayağı Mah.</text><text x="555" y="295" font-size="30">İstasyon Cd.</text></g><rect x="110" y="660" width="220" height="110" rx="18" fill="#0b4f6c"/><text x="220" y="725" text-anchor="middle" font-family="Arial" font-size="29" fill="white">OKUL</text><path d="M320 690 C430 620 535 490 650 375" stroke="#167453" stroke-width="12" fill="none" stroke-dasharray="20 15"/><circle cx="720" cy="320" r="48" fill="#df3f45"/><text x="720" y="333" text-anchor="middle" font-family="Arial" font-size="40" fill="white">?</text></svg>`;let uri='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(map),ord=[0,1,2,3,4,5,6,7,8];
-function tile(i){let d=document.createElement('div');d.className='tile';d.dataset.i=i;let im=document.createElement('img'),x=i%3*300,y=Math.floor(i/3)*300,s=`<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="${x} ${y} 300 300"><image href="${uri}" width="900" height="900"/></svg>`;im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);d.appendChild(im);d.onclick=()=>swap(d);return d}function init(){let b=$('puzzle');b.innerHTML='';ord=[0,1,2,3,4,5,6,7,8];for(let i=8;i>0;i--){let j=Math.floor(Math.random()*(i+1));[ord[i],ord[j]]=[ord[j],ord[i]]}if(ord.every((v,i)=>v===i))[ord[0],ord[1]]=[ord[1],ord[0]];ord.forEach(i=>b.appendChild(tile(i)));$('target').classList.add('hidden');$('photo').classList.add('hidden');sel=null}function swap(e){if(!sel){sel=e;e.classList.add('sel');return}if(sel===e){e.classList.remove('sel');sel=null;return}let b=$('puzzle'),a=[...b.children].indexOf(sel),c=[...b.children].indexOf(e),nodes=[...b.children],ph=document.createComment('x');b.insertBefore(ph,sel);b.insertBefore(sel,e);b.insertBefore(e,ph);ph.remove();sel.classList.remove('sel');sel=null;if([...b.children].every((x,i)=>+x.dataset.i===i)){$('target').classList.remove('hidden');$('photo').classList.remove('hidden');$('target').scrollIntoView({behavior:'smooth'})}}$('shuffle').onclick=init;
-document.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{if(b.dataset.ok){b.classList.add('good');$('feed').innerHTML='<div class="box success">✅ Kimya kilidi açıldı.</div>';$('pcard').classList.remove('hidden');init();$('pcard').scrollIntoView({behavior:'smooth'})}else{st.wrong++;save();b.classList.add('bad');$('feed').innerHTML=`<div class="box hint">🔒 Hedef henüz açılmadı.<br>💡 ${st.wrong===1?'Kimya maddelerin yapısını, özelliklerini ve değişimlerini de inceler.':'Paslanma, temizlik maddesi ve plastik malzeme üçü de kimyayla ilişkilidir.'}</div>`}});
-$('photoFile').onchange=e=>{if(!e.target.files[0])return;let u=URL.createObjectURL(e.target.files[0]);$('preview').innerHTML=`<img src="${u}" style="max-width:100%;border-radius:14px;margin:10px 0">`};$('complete').onclick=()=>{if(!$('pdone').checked)return $('cerr').classList.remove('hidden');if(!st.done.includes(1))st.done.push(1);if(!st.ev.includes(1))st.ev.push(1);save();render();alert('🏁 İstasyon 01 tamamlandı. İstasyon 02 erişilebilir!');view('home')};
-render();if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-</script>
-</body></html>
+  <header class="appbar">
+    <div>
+      <div class="eyebrow">EDREMİT'TE KİMYANIN İZİNDE</div>
+      <h1>Kimya Oryantiringi</h1>
+    </div>
+    <button id="installBtn" class="iconBtn hidden" aria-label="Uygulamayı yükle">＋</button>
+  </header>
+
+  <main id="app">
+    <section id="homeView" class="view">
+      <div class="hero card">
+        <div class="heroIcon">⚛️</div>
+        <div>
+          <h2>Keşfet • Kimyayı Çöz • Kanıtla • Anlat</h2>
+          <p>Edremit'i açık hava kimya laboratuvarına dönüştüren QR parkuru.</p>
+        </div>
+      </div>
+
+      <section id="teamSetup" class="card">
+        <span class="pill">BAŞLANGIÇ</span>
+        <h2>👥 Takımını oluştur</h2>
+        <p>3 kişilik takımınızı kaydedin. Roller istasyonlar arasında dönüşümlü değişecek.</p>
+        <label>Takım adı<input id="teamName" placeholder="Örn. İyon Avcıları"></label>
+        <label>1. öğrenci<input id="member1" placeholder="Ad Soyad"></label>
+        <label>2. öğrenci<input id="member2" placeholder="Ad Soyad"></label>
+        <label>3. öğrenci<input id="member3" placeholder="Ad Soyad"></label>
+        <button class="primary" id="saveTeamBtn">Takımı oluştur</button>
+        <p id="teamError" class="errorText hidden">Takım adı ve üç öğrenci adı gerekli.</p>
+      </section>
+
+      <section id="dashboard" class="hidden">
+        <div class="card">
+          <div class="row between">
+            <div>
+              <div class="muted">TAKIM</div>
+              <h2 id="dashTeamName"></h2>
+            </div>
+            <span class="badge" id="progressBadge">0 / 10</span>
+          </div>
+          <div class="progressTrack"><div id="progressBar" class="progressBar"></div></div>
+          <p class="muted">Parkur ilerlemesi</p>
+        </div>
+
+        <div class="actionGrid">
+          <button class="actionCard" id="scanBtn">
+            <span>📷</span><b>İstasyon QR'ını Tara</b><small>Kamerayı aç veya kodu elle gir</small>
+          </button>
+          <button class="actionCard" id="routeBtn">
+            <span>🗺️</span><b>Yolculuğum</b><small>İstasyon durumlarını gör</small>
+          </button>
+          <button class="actionCard" id="evidenceBtn">
+            <span>📸</span><b>Kimya Kanıtlarım</b><small>Fotoğraf görevlerini takip et</small>
+          </button>
+          <button class="actionCard" id="achievementsBtn">
+            <span>🏆</span><b>Başarılarım</b><small>Unvan ve ilerleme</small>
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>🔄 Sıradaki roller</h3>
+          <div id="roleList" class="roles"></div>
+        </div>
+      </section>
+    </section>
+
+    <section id="scannerView" class="view hidden">
+      <button class="backBtn" data-back>← Ana ekran</button>
+      <div class="card">
+        <span class="pill">QR TARAMA</span>
+        <h2>📷 İstasyon kodunu tara</h2>
+        <p>QR kodu kameraya gösterin. Kamera desteklenmiyorsa kodu elle girebilirsiniz.</p>
+        <div class="videoWrap">
+          <video id="video" playsinline muted></video>
+          <div id="scanOverlay" class="scanOverlay">QR alanı</div>
+        </div>
+        <button id="startCameraBtn" class="primary">Kamerayı başlat</button>
+        <button id="stopCameraBtn" class="secondary hidden">Kamerayı durdur</button>
+        <p id="cameraNote" class="muted small"></p>
+        <hr>
+        <label>Manuel kod<input id="manualCode" placeholder="Örn. EDR-KIM-01" autocapitalize="characters"></label>
+        <button id="manualOpenBtn" class="secondary">İstasyonu aç</button>
+        <p id="scanError" class="errorText hidden"></p>
+      </div>
+    </section>
+
+    <section id="routeView" class="view hidden">
+      <button class="backBtn" data-back>← Ana ekran</button>
+      <div class="card"><h2>🗺️ Yolculuğum</h2><div id="stationList"></div></div>
+    </section>
+
+    <section id="evidenceView" class="view hidden">
+      <button class="backBtn" data-back>← Ana ekran</button>
+      <div class="card"><h2>📸 Kimya Kanıtlarım</h2><p>Fotoğrafları telefonunuzda saklayın.</p><div id="evidenceList"></div></div>
+    </section>
+
+    <section id="achievementsView" class="view hidden">
+      <button class="backBtn" data-back>← Ana ekran</button>
+      <div class="card center"><div class="trophy">🏆</div><h2 id="titleStatus">Edremit Kimya Kâşifi Adayı</h2><p id="achievementText"></p></div>
+    </section>
+
+    <section id="stationView" class="view hidden">
+      <button class="backBtn" data-back>← Ana ekran</button>
+      <div id="station01" class="station hidden">
+        <div class="card stationHero"><span class="pill">İSTASYON 01</span><h2>🏫 Kimya Her Yerde</h2><p>Fernur Sözen Mesleki ve Teknik Anadolu Lisesi</p></div>
+        <div class="card"><h3>🔄 Bu istasyondaki roller</h3><div id="stationRoles" class="roles"></div></div>
+        <div class="card" id="s1Question">
+          <span class="pill">GÖREV</span>
+          <h3>🔎 Önce çevreni gözlemle</h3>
+          <p>30 saniye boyunca okul çevresini inceleyin. Boyanmış bir yüzey, metal bir nesne ve plastikten yapılmış bir eşya bulun.</p>
+          <h3>Aşağıdakilerden hangisi kimyanın inceleme alanıyla ilişkilidir?</h3>
+          <button class="answer" data-correct="false">A) Metal yüzeyin zamanla paslanması</button>
+          <button class="answer" data-correct="false">B) Bir temizlik maddesinin kiri uzaklaştırması</button>
+          <button class="answer" data-correct="false">C) Plastik bir kalemin üretildiği malzemenin özellikleri</button>
+          <button class="answer" data-correct="true">D) Yukarıdakilerin tümü</button>
+          <div id="answerFeedback"></div>
+        </div>
+        <div class="card hidden" id="puzzleCard">
+          <span class="pill">HEDEF KİLİDİ AÇILDI</span>
+          <h3>🧩 3×3 harita puzzle'ı</h3>
+          <div class="puzzlePanel">
+            <div class="previewCard">
+              <div class="previewTop">
+                <strong>Önizleme</strong>
+                <button id="togglePreviewBtn" class="miniBtn">Göster / Gizle</button>
+              </div>
+              <div id="mapPreview" class="mapPreview"></div>
+              <p class="muted small">Hedef: Okuldan İstasyon Caddesi yönünü bulmak.</p>
+            </div>
+            <div class="gameCard">
+              <p>Parçalara sırayla dokunarak yerlerini değiştirin. Harita tamamlanınca Hedef 02 açılır.</p>
+              <div id="puzzle" class="puzzle"></div>
+              <div class="puzzleActions">
+                <button id="shuffleBtn" class="secondary">Karıştır</button>
+                <button id="hintBtn" class="secondary">Parça İpucu</button>
+              </div>
+              <div id="puzzleHintBox" class="hintBox hidden">İpucu: Okul kartı sol-alt bölgede, kırmızı hedef işareti sağ-üst bölgede yer almalı.</div>
+            </div>
+          </div>
+          <div id="target02" class="target targetDetail hidden">
+            <div class="targetPin">📍</div>
+            <h3>Edremit İlçe Halk Kütüphanesi</h3>
+            <div class="addressCard directAddress">
+              <div class="addressLabel">GİDECEĞİNİZ ADRES</div>
+              <div class="addressText">Cennetayağı Mahallesi<br><b>İstasyon Caddesi No:14</b><br>Edremit / Balıkesir</div>
+            </div>
+            <p class="targetInstruction"><b>Puzzle tamamlandı.</b><br>Şimdi bu adrese gidin ve <b>İSTASYON 02</b> QR kodunu bulun.</p>
+            <div class="targetButtons">
+              <a class="primary linkButton" href="https://www.google.com/maps/search/?api=1&query=Edremit+%C4%B0l%C3%A7e+Halk+K%C3%BCt%C3%BCphanesi%2C+Cennetaya%C4%9F%C4%B1+Mahallesi%2C+%C4%B0stasyon+Caddesi+No%3A14%2C+Edremit%2C+Bal%C4%B1kesir" target="_blank" rel="noopener">🗺️ Haritada Aç</a>
+              <button id="copyAddressBtn" class="secondary">📋 Adresi Kopyala</button>
+            </div>
+            <p id="copyStatus" class="muted small hidden">Adres panoya kopyalandı.</p>
+          </div>
+        </div>
+        <div class="card hidden" id="photoMission">
+          <span class="pill">KİMYA KANITI 01</span>
+          <h3>📸 Fotoğraf görevi</h3>
+          <p>Okul çevresinde kimyayla ilişkilendirebildiğiniz <b>üç farklı malzemeyi aynı karede</b> göstermeye çalışın.</p>
+          <input id="photoInput" type="file" accept="image/*" capture="environment">
+          <div id="photoPreview" class="photoPreview hidden"></div>
+          <label class="check"><input type="checkbox" id="photoDone"> Fotoğraf görevini tamamladık.</label>
+          <button id="completeStation1Btn" class="primary">İstasyon 01'i tamamla</button>
+          <p id="completeError" class="errorText hidden">Önce fotoğraf görevini tamamladığınızı işaretleyin.</p>
+        </div>
+      </div>
+      <div id="stationPlaceholder" class="station hidden"><div class="card"><h2 id="placeholderTitle"></h2><p>Bu istasyon henüz prototipe eklenmedi.</p></div></div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,13 +1,35 @@
-EDREMİT'TE KİMYANIN İZİNDE — PWA PROTOTİP
+EDREMİT KİMYA PWA — V2
+Bu sürümde puzzle görünümü iyileştirildi:
+- Daha okunaklı harita
+- Önizleme paneli
+- Parça numaraları
+- Mobil uyumlu tasarım
+- Karıştır ve İpucu butonları
 
-GitHub Pages:
-1. Bu klasördeki TÜM dosyaları GitHub deposunun kök dizinine yükleyin.
-2. Settings > Pages > Deploy from a branch > main > /(root) > Save.
-3. GitHub'ın verdiği https://...github.io/... adresini telefondan açın.
-4. Takım oluşturun.
-5. QR tarama ekranını test edin.
+GÜNCELLEME:
+Eski GitHub Pages dosyalarının yerine bu klasördeki dosyaları yükleyin.
+Özellikle app.js ve styles.css dosyaları da depoda bulunmalıdır.
 
-Test QR içeriği: EDR-KIM-01
-Manuel yedek kod: EDR-KIM-01
 
-Not: Kamera için HTTPS gerekir; GitHub Pages bunu sağlar.
+V3 GÜNCELLEMESİ
+- Puzzle tamamlanınca net hedef kartı açılır.
+- Hedef adı: Edremit İlçe Halk Kütüphanesi
+- Adres: Cennetayağı Mahallesi, İstasyon Caddesi No:14, Edremit / Balıkesir
+- Google Maps'te Aç düğmesi eklendi.
+- Adresi Kopyala düğmesi eklendi.
+- Puzzle tamamlandığında yeşil başarı çerçevesi görünür.
+- Service worker v3: eski önbellekler otomatik temizlenir.
+
+GITHUB GÜNCELLEME:
+Bu sürümde özellikle index.html, styles.css, app.js ve sw.js dosyalarını
+GitHub'daki aynı adlı dosyaların üzerine yükleyin / değiştirin.
+
+
+V4 GÜNCELLEMESİ
+- Puzzle tamamlanır tamamlanmaz doğrudan:
+  Edremit İlçe Halk Kütüphanesi
+  Cennetayağı Mahallesi, İstasyon Caddesi No:14, Edremit / Balıkesir
+  bilgisi görünür.
+- Aradaki "Hedef 02 açıldı" ifadesi kaldırıldı.
+- Açık adres daha büyük ve belirgin gösterilir.
+- Haritada Aç ve Adresi Kopyala seçenekleri korunur.
