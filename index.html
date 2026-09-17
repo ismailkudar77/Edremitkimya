@@ -33,13 +33,42 @@
       <section id="teamSetup" class="card">
         <span class="pill">BAŞLANGIÇ</span>
         <h2>👥 Takımını oluştur</h2>
-        <p>3 kişilik takımınızı kaydedin. Roller istasyonlar arasında dönüşümlü değişecek.</p>
-        <label>Takım adı<input id="teamName" placeholder="Örn. İyon Avcıları"></label>
-        <label>1. öğrenci<input id="member1" placeholder="Ad Soyad"></label>
-        <label>2. öğrenci<input id="member2" placeholder="Ad Soyad"></label>
-        <label>3. öğrenci<input id="member3" placeholder="Ad Soyad"></label>
+        <p>3 kişilik takımınızı kaydedin. Her öğrenci yalnızca <b>bir gruba</b> katılabilir.</p>
+        <label>Takım adı<input id="teamName" type="text" placeholder="Örn. İyon Avcıları" autocomplete="off"></label>
+
+        <div class="studentCard">
+          <h3>1. öğrenci</h3>
+          <div class="studentGrid">
+            <label>Ad<input id="m1First" type="text" autocomplete="given-name"></label>
+            <label>Soyad<input id="m1Last" type="text" autocomplete="family-name"></label>
+            <label>Sınıf<input id="m1Class" type="text" placeholder="Örn. 10/A" autocomplete="off"></label>
+            <label>Numara<input id="m1No" type="text" inputmode="numeric" placeholder="Örn. 125" autocomplete="off"></label>
+          </div>
+        </div>
+
+        <div class="studentCard">
+          <h3>2. öğrenci</h3>
+          <div class="studentGrid">
+            <label>Ad<input id="m2First" type="text" autocomplete="given-name"></label>
+            <label>Soyad<input id="m2Last" type="text" autocomplete="family-name"></label>
+            <label>Sınıf<input id="m2Class" type="text" placeholder="Örn. 10/A" autocomplete="off"></label>
+            <label>Numara<input id="m2No" type="text" inputmode="numeric" placeholder="Örn. 184" autocomplete="off"></label>
+          </div>
+        </div>
+
+        <div class="studentCard">
+          <h3>3. öğrenci</h3>
+          <div class="studentGrid">
+            <label>Ad<input id="m3First" type="text" autocomplete="given-name"></label>
+            <label>Soyad<input id="m3Last" type="text" autocomplete="family-name"></label>
+            <label>Sınıf<input id="m3Class" type="text" placeholder="Örn. 10/A" autocomplete="off"></label>
+            <label>Numara<input id="m3No" type="text" inputmode="numeric" placeholder="Örn. 207" autocomplete="off"></label>
+          </div>
+        </div>
+
+        <div class="privacyNote">🔐 Öğrenci numarası ve sınıf bilgisi, aynı öğrencinin iki farklı gruba katılmasını engellemek için kullanılır.</div>
         <button class="primary" id="saveTeamBtn">Takımı oluştur</button>
-        <p id="teamError" class="errorText hidden">Takım adı ve üç öğrenci adı gerekli.</p>
+        <p id="teamError" class="errorText hidden"></p>
       </section>
 
       <section id="dashboard" class="hidden">
@@ -53,6 +82,10 @@
           </div>
           <div class="progressTrack"><div id="progressBar" class="progressBar"></div></div>
           <p class="muted">Parkur ilerlemesi</p>
+          <div class="teamMeta">
+            <span id="teamCodeBadge" class="teamCode"></span>
+            <span id="cloudStatus" class="small muted">☁️ Bağlanıyor…</span>
+          </div>
         </div>
 
         <div class="actionGrid">
@@ -151,18 +184,19 @@
             </div>
           </div>
           <div id="target02" class="target targetDetail hidden">
-            <div class="targetPin">📍</div>
-            <h3>Edremit İlçe Halk Kütüphanesi</h3>
-            <div class="addressCard directAddress">
-              <div class="addressLabel">GİDECEĞİNİZ ADRES</div>
-              <div class="addressText">Cennetayağı Mahallesi<br><b>İstasyon Caddesi No:14</b><br>Edremit / Balıkesir</div>
+            <div class="targetPin">🧩</div>
+            <span class="pill targetPill">YENİ HEDEF AÇILDI</span>
+            <h3>Sıradaki hedefini bul</h3>
+            <div class="riddleCard">
+              <div class="riddleLabel">BİLMECE</div>
+              <p>“Raflar dolusu bilgi saklarım,<br>Sessizliği severim.<br>Sayfalar arasında binlerce dünya,<br>Merak eden herkese kapım açıktır.”</p>
             </div>
-            <p class="targetInstruction"><b>Puzzle tamamlandı.</b><br>Şimdi bu adrese gidin ve <b>İSTASYON 02</b> QR kodunu bulun.</p>
-            <div class="targetButtons">
-              <a class="primary linkButton" href="https://www.google.com/maps/search/?api=1&query=Edremit+%C4%B0l%C3%A7e+Halk+K%C3%BCt%C3%BCphanesi%2C+Cennetaya%C4%9F%C4%B1+Mahallesi%2C+%C4%B0stasyon+Caddesi+No%3A14%2C+Edremit%2C+Bal%C4%B1kesir" target="_blank" rel="noopener">🗺️ Haritada Aç</a>
-              <button id="copyAddressBtn" class="secondary">📋 Adresi Kopyala</button>
+            <div class="directionCard">
+              <div class="directionLabel">🧭 YOL TARİFİ</div>
+              <p>Puzzle'da gördüğünüz yeşil rotayı takip ederek <b>İstasyon Caddesi yönünde</b> ilerleyin.</p>
+              <p>Bilmecenin tarif ettiği yapıyı bulduğunuzda <b>karşı tarafını</b> dikkatlice inceleyin.</p>
+              <p><b>Yeni QR kodunu bulduğunuzda İstasyon 02 açılacak.</b></p>
             </div>
-            <p id="copyStatus" class="muted small hidden">Adres panoya kopyalandı.</p>
           </div>
         </div>
         <div class="card hidden" id="photoMission">
@@ -179,6 +213,9 @@
       <div id="stationPlaceholder" class="station hidden"><div class="card"><h2 id="placeholderTitle"></h2><p>Bu istasyon henüz prototipe eklenmedi.</p></div></div>
     </section>
   </main>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

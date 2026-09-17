@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Öğrenci benzersizlik kayıtları.
+    // Belge kimliği sınıf + okul numarasının SHA-256 özetidir;
+    // ad/soyad bu koleksiyonda tutulmaz.
+    match /students/{studentId} {
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn()
+                    && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.keys().hasOnly([
+                      'teamId', 'ownerUid', 'createdAt'
+                    ]);
+      allow update, delete: if false;
+    }
+
+    // Takımın ayrıntılarını yalnızca takımı oluşturan anonim oturum okuyabilir.
+    match /teams/{teamId} {
+      allow create: if signedIn()
+                    && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.teamCode == teamId
+                    && request.resource.data.members.size() == 3;
+
+      allow get: if signedIn()
+                 && resource.data.ownerUid == request.auth.uid;
+      allow list: if false;
+
+      // Öğrenci tarafı yalnızca ilerleme alanlarını değiştirebilir.
+      allow update: if signedIn()
+                    && resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.ownerUid == resource.data.ownerUid
+                    && request.resource.data.teamCode == resource.data.teamCode
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+                      'completed',
+                      'evidence',
+                      'wrongAttempts',
+                      'stationProgress',
+                      'currentStation',
+                      'updatedAt'
+                    ]);
+
+      allow delete: if false;
+    }
+  }
+}

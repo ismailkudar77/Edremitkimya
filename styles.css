@@ -5,7 +5,7 @@
 main{max-width:820px;margin:auto;padding:14px 14px 70px}.view{animation:fade .18s ease}@keyframes fade{from{opacity:.3;transform:translateY(4px)}to{opacity:1}} .hidden{display:none!important}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin:12px 0;box-shadow:0 8px 24px #14322a0d}.hero{display:flex;gap:14px;align-items:center;background:linear-gradient(135deg,#0b4f6c,#147a55);color:white;border:none}.heroIcon{font-size:48px}.hero h2{margin:0 0 4px;font-size:21px}.hero p{margin:0;opacity:.9}
 h2,h3{margin-top:0} p{line-height:1.48}.muted{color:var(--muted)} .small{font-size:13px}.center{text-align:center}
-label{display:block;font-weight:750;margin:10px 0 6px} input{font-size:16px} input[type=text],input[type=file],#manualCode,#teamName,#member1,#member2,#member3{width:100%;padding:12px 13px;border:1px solid #b8c8c6;border-radius:12px;background:white;margin-top:6px}
+label{display:block;font-weight:750;margin:10px 0 6px} input{font-size:16px} input[type=text],input[type=file],#manualCode,#teamName{width:100%;padding:12px 13px;border:1px solid #b8c8c6;border-radius:12px;background:white;margin-top:6px}
 button{font:inherit;cursor:pointer}.primary,.secondary,.answer,.backBtn,.iconBtn,.miniBtn{border:0;border-radius:13px;padding:13px 14px;font-weight:800}.primary{width:100%;background:var(--green);color:white}.secondary{width:100%;background:#e8f1f3;color:#173844}.backBtn{background:transparent;color:var(--blue);padding-left:2px}.iconBtn{background:#ffffff22;color:white;font-size:22px;padding:5px 12px}.miniBtn{padding:8px 10px;background:#e8f1f3;color:#173844;border-radius:10px}
 .pill{display:inline-block;background:#e7f1f4;color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.06em;padding:5px 9px;border-radius:999px;margin-bottom:8px}.row{display:flex;align-items:center;gap:12px}.between{justify-content:space-between}.badge{background:#e9f7ee;color:#147a55;font-weight:900;padding:8px 11px;border-radius:999px}
 .progressTrack{height:12px;background:#e4ecec;border-radius:999px;overflow:hidden}.progressBar{height:100%;background:linear-gradient(90deg,#147a55,#57a86e);width:0}
@@ -62,3 +62,21 @@ hr{border:0;border-top:1px solid var(--line);margin:20px 0}.errorText{color:var(
   font-size:20px;
   line-height:1.55;
 }
+
+
+/* V5 — Firebase kayıt, öğrenci kimliği ve gizli hedef akışı */
+.studentCard{border:1px solid var(--line);background:#f8fbfb;border-radius:16px;padding:14px;margin:14px 0}
+.studentCard h3{margin:0 0 8px;color:var(--blue)}
+.studentGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.studentGrid label{margin:4px 0}
+.privacyNote{background:#eef7fa;border:1px solid #c8dde4;border-radius:13px;padding:11px 12px;margin:14px 0;color:#29434d;font-size:13px;line-height:1.45}
+.teamMeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-top:10px}
+.teamCode{display:inline-block;background:#eef6f2;border:1px solid #c6dfd2;color:#17593f;font-weight:900;padding:6px 9px;border-radius:999px;font-size:12px;letter-spacing:.03em}
+button:disabled{opacity:.55;cursor:not-allowed}
+.riddleCard{background:#fff8dc;border:1px solid #ead48a;border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.riddleCard p{font-size:19px;font-style:italic;line-height:1.7;margin:4px 0}
+.riddleLabel,.directionLabel{font-size:12px;letter-spacing:.1em;font-weight:900;color:#835c10;margin-bottom:7px}
+.directionCard{background:#eaf7ef;border:1px solid #a8d9ba;border-radius:16px;padding:15px;margin-top:12px;text-align:left}
+.directionCard p{margin:8px 0}
+.directionLabel{color:#17613f}
+@media(max-width:560px){.studentGrid{grid-template-columns:1fr}.teamMeta{align-items:flex-start;flex-direction:column}}

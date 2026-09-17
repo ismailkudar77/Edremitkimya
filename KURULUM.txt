@@ -1,0 +1,25 @@
+EDREMİT KİMYA ORYANTİRİNGİ — V5 KURULUM
+
+1) GitHub deposunda mevcut index.html, styles.css ve app.js dosyalarını bu klasördeki sürümlerle değiştirin.
+
+2) Firebase Console > Firestore Database > Rules bölümüne girin.
+   firestore.rules dosyasının tamamını kopyalayıp Rules alanına yapıştırın ve Publish/Yayınla düğmesine basın.
+
+3) Firebase Console > Authentication > Sign-in method bölümünde Anonymous/Anonim girişin Enabled olduğundan emin olun.
+
+4) GitHub Pages güncellendikten sonra siteyi açın.
+   İlk ekranda 3 öğrenci için Ad, Soyad, Sınıf ve Numara girilir.
+   Aynı sınıf+numara daha önce başka bir grupta kayıtlıysa yeni grup kaydı engellenir.
+
+5) Takım oluşturulduğunda 8 karakterlik grup kodu ekranda görünür.
+   İlerleme hem telefonda hem Firestore'da saklanır.
+
+6) QR kodlar iki biçimde çalışabilir:
+   - İçerik olarak sadece: EDR-KIM-01
+   - Ya da URL olarak: https://SITENIZ.github.io/Edremitkimya/?code=EDR-KIM-01
+   İkinci yöntem, QR açıldığında istasyonu doğrudan açmak için daha uygundur.
+
+NOT:
+- Hedef isimleri öğrencinin Yolculuğum/Kanıtlar ekranında artık gösterilmez.
+- Puzzle tamamlandığında hedef adı yerine bilmece + yol tarifi açılır.
+- Öğretmen paneli için ayrıca öğretmen kimlik doğrulaması ekleyeceğiz. Mevcut kurallar öğrenci verilerini diğer anonim kullanıcılara listeletmez.
